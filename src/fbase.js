@@ -1,4 +1,7 @@
+// 절대 경로는 파일 이름과 npm install로 설치한 패키지 이름이
+// 파일 이름과 같으면 오류가 발생, firebase->fbase로 변경
 import firebase from "firebase/compat/app";
+import "firebase/compat/auth";
 
 const firebaseConfig = {
     apiKey: process.env.REACT_APP_API_KEY,
@@ -9,4 +12,6 @@ const firebaseConfig = {
     appId: process.env.REACT_APP_APP_ID
 };
 
-export default firebase.initializeApp(firebaseConfig);
+firebase.initializeApp(firebaseConfig);
+
+export const authService = firebase.auth();
