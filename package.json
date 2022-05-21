@@ -15,7 +15,9 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build"
+    "build": "react-scripts build",
+    "format": "prettier --check ./src",
+    "format:fix": "prettier --write ./src"
   },
   "eslintConfig": {
     "extends": [
