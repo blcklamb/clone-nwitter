@@ -1,6 +1,7 @@
 import { dbService, storageService } from 'fbase'
 import { useEffect, useState } from 'react'
 import Nweet from 'components/Nweet'
+import NweetFactory from 'components/NweetFactory'
 import { v4 as uuidv4 } from 'uuid'
 
 const Home = ({ userObj }) => {
@@ -77,23 +78,14 @@ const Home = ({ userObj }) => {
 
   return (
     <>
-      <form onSubmit={onSubmit}>
-        <input
-          value={nweet}
-          onChange={onChange}
-          type="text"
-          placeholder="What's on your mind?"
-          maxLength={120}
-        />
-        <input type="file" accept="image/*" onChange={onFileChange} />
-        <input type="submit" value="Nweet" />
-        {attachment && (
-          <div>
-            <img src={attachment} alt="" width="50px" height="50px" />
-            <button onClick={onClearAttachment}>Clear</button>
-          </div>
-        )}
-      </form>
+      <NweetFactory
+        onSubmit={onSubmit}
+        nweet={nweet}
+        onChange={onChange}
+        onFileChange={onFileChange}
+        attachment={attachment}
+        onClearAttachment={onClearAttachment}
+      />
       <div>
         {nweets.map(nweet => {
           return (
