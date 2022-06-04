@@ -28,19 +28,19 @@ const Profile = ({ userObj, refreshUser }) => {
     }
   }
 
-  // const getMyNweets = async () => {
-  //   const nweets = await dbService
-  //     .collection('nweets')
-  //     .where('creatorId', '==', userObj.uid)
-  //     .orderBy('createdAt', 'asc')
-  //     .get()
-  //   const newArray = await nweets.docs.map(doc => doc.data())
-  //   setNweets(newArray)
-  // }
+  const getMyNweets = async () => {
+    const nweets = await dbService
+      .collection('nweets')
+      .where('creatorId', '==', userObj.uid)
+      .orderBy('createdAt', 'asc')
+      .get()
+    const newArray = await nweets.docs.map(doc => doc.data())
+    setNweets(newArray)
+  }
 
-  // useEffect(() => {
-  //   getMyNweets()
-  // }, [])
+  useEffect(() => {
+    getMyNweets()
+  }, [])
 
   return (
     <>

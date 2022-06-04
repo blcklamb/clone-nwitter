@@ -23,9 +23,9 @@ const Home = ({ userObj }) => {
   }, [])
 
   return (
-    <>
-      <NweetFactory userObj={userObj}/>
-      <div>
+    <div className="container">
+      <NweetFactory userObj={userObj} />
+      <div style={{ marginTop: 30 }}>
         {nweets.map(nweet => {
           return (
             <Nweet
@@ -36,7 +36,7 @@ const Home = ({ userObj }) => {
           )
         })}
       </div>
-    </>
+    </div>
   )
 }
 

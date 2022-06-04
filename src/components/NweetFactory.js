@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { dbService, storageService } from 'fbase'
 import { v4 as uuidv4 } from 'uuid'
 
-const NweetFactory = ({userObj}) => {
+const NweetFactory = ({ userObj }) => {
   const [nweet, setNweet] = useState('')
   const [attachment, setAttachment] = useState('')
 
