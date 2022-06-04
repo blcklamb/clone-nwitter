@@ -7,17 +7,19 @@ const Home = ({ userObj }) => {
   const [nweets, setNweets] = useState([])
 
   useEffect(() => {
-    dbService.collection('nweets').onSnapshot(snapshot => {
+    dbService.collection('nweets')
+    .orderBy("createdAt", "desc")
+    .onSnapshot(snapshot => {
       const newArray = snapshot.docs.map(document => ({
         id: document.id,
         ...document.data(),
       }))
-      function compare(a, b) {
-        if (a.createdAt < b.createdAt) return -1
-        if (a.createdAt > b.createdAt) return 1
-        return 0
-      }
-      newArray.sort(compare)
+      // function compare(a, b) {
+      //   if (a.createdAt < b.createdAt) return -1
+      //   if (a.createdAt > b.createdAt) return 1
+      //   return 0
+      // }
+      // newArray.sort(compare)
       setNweets(newArray)
     })
   }, [])
